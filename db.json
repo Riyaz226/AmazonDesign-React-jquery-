@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "name": "Lenovo",
+      "ram": "8 to consle",
+      "author": "typicode",
+      "brand":"new version"
+    },
+    {
+      "name": "Levo",
+      "ram": "8 to consle",
+      "author": "typicode",
+      "brand":"new version"
+    },
+    {
+      "name": "Levo",
+      "ram": "8 to consle",
+      "author": "typicode",
+      "brand":"new version"
+    }
+  ]
+  
+}

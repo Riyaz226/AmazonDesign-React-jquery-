@@ -1,0 +1,95 @@
+/*fetch use*/
+  const [data, setData] = useState([]);
+     fetch("https://api.escuelajs.co/api/v1/products")
+       .then((response) => response.json())
+       .then((json) => {
+         console.log(json);
+         setData(json);
+       });
+  
+ {/* <pre>{JSON.stringify(data, null, 2)}</pre> */} 
+       <div class="products">
+          {data.map((item) => (
+             <p key={item.id}>
+                  <img src={item.images} alt="{item.image}"/>
+                  <p class="title">{item.title}</p>
+                  <p class="description">{item.description}</p>
+                    <p class="price">
+                        <div>{item.price}</div>
+                        <div>&euro;</div>
+                     </p>
+                    {/* <p class="detail">
+                       <div>{item.creationAt}</div>
+                        <div>{item.updatedAt}</div>
+                    </p>    */}
+              </p>
+          ))}
+      </div>
+
+/*data json use file type*/
+import Records from './data.json' 
+
+
+     {
+        Records.map( record => {
+           return(
+          <div className="product">
+             <img src={record.image} alt={record.image}/>
+             <p class="title">{record.title}</p>
+             <p class="description">{record.description}</p>
+                <div class="price">
+                      <p>{record.price}</p>  
+                </div>
+                <div class="detail">
+                      <p>{record.creationAt}</p>
+                      <p>{record.updatedAt}</p>  
+                </div>
+                
+            </div>
+           )
+        })
+      }
+/*LocalHost In Stream*/ 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from 'react'
+function App() {
+    const [Users, fetchUsers] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:4000/users')
+        .then((res) => res.json())
+        .then((res) => {
+            fetchUsers(res)
+            console.log(res);
+        })
+    }, []);
+    return (
+       <div className="container p-5">
+        <h1 className='mb-5'>Reactjs Fetch Api Data from Json Server</h1>
+       
+        <table className="table">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Job Title</th>
+                </tr>
+            </thead>
+            <tbody>
+            {Users.map((item, i) => {
+                                return <tr>
+                                    <td>{item.id}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.job_title}</td>
+                                </tr>      
+                                       })}
+                <tr>
+               
+                </tr>
+            </tbody>
+            </table>
+       </div>
+    )
+}
+export default App;     
