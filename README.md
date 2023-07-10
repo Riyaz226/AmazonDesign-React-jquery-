@@ -1,1 +1,1 @@
-# AmazonDesign-React-jquery-
+# AmazonDesign-React-jquery
